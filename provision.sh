@@ -4,10 +4,14 @@ apt-get -y update
 
 dpkg -s npm &>/dev/null || {
   apt-get -y install nodejs npm
-  npm install -g npm
+  # npm install -g npm
   ln -s /usr/bin/nodejs /usr/bin/node
 }
 
 command -v hubot &>/dev/null || {
  npm install -g yo generator-hubot
+}
+
+dpkg -s libicu-dev &>/dev/null || {
+ apt-get -y install libexpat1-dev libicu-dev
 }
