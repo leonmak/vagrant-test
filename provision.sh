@@ -15,3 +15,9 @@ command -v hubot &>/dev/null || {
 dpkg -s libicu-dev &>/dev/null || {
  apt-get -y install libexpat1-dev libicu-dev
 }
+
+cp /vagrant/upstart/myhubot.conf /etc/init/myhubot.conf
+
+sudo -u vagrant -i sh -c 'cd /vagrant/myhubot; npm install'
+
+service myhubot restart
